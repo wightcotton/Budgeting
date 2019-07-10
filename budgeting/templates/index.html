@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}something here{% endblock %}
+{% block content %}
+    <div><a href="{{ url_for('track_budget.monthly_drill_down') }}"> track budget</a></div>
+    <div><a href="{{ url_for('spending_analysis.highlights') }}"> spending highlights</a></div>
+{% endblock %}

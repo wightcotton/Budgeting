@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+    <div>
+        {%  for super_category, category_dict in actuals.items() %}
+            <details>
+
+            <summary>{{ super_category }}<br></summary>
+
+            {% for category, year_dict  in category_dict.items() %}
+                <details id="list2">
+                    <summary>{{ category }}<br></summary>
+
+                    {% for year, monthly_dict in year_dict.items() %}
+                        <details text-indent:100px>
+                            <summary>{{ year }}<br></summary>
+                            <ul id="list4">
+                            {% for month, monthly_value in monthly_dict.items() %}
+                                <li>{{ month }} : {{ '%0.2f' % monthly_value|float }} | {{ '%0.2f' % budgets[category][2]|float }}</li>
+                            {% endfor %}
+                            </ul>
+                        </details>
+                {% endfor %}
+                </details>
+            {% endfor %}
+            </details>
+        {% endfor %}
+
+{% endblock %}
+
+

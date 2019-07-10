@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}show tagged{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+    <h1>links</h1>
+    <nav>
+        <a href="{{ url_for('transactions.trans_list') }}">view list of trans</a>
+    </nav>
+
+{% endblock %}

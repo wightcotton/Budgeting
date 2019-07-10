@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+    <div>
+        {%  for super_category, super_category_dict in summary.items() %}
+            <details>
+
+            <summary>{{ super_category }}<br></summary>
+
+            {% for category, category_list  in super_category_dict.items() %}
+                <details id="list2">
+                    <summary>{{ category }}<br></summary>
+
+                        <ul>
+        <li>period: budget | spending | percent spent</li>
+        <li>last 12 months: {{ '${:,.2f}'.format(category_list[0][0]) }} | {{ '${:,.2f}'.format(category_list[0][1]) }} | {{ '{:,.2f}%'.format(category_list[0][2] ) }}</li>
+        <li>this year so far: {{ '${:,.2f}'.format(category_list[1][0])}} | {{ '${:,.2f}'.format(category_list[1][1]) }} | {{ '{:,.2f}%'.format(category_list[1][2])}}</li>
+        <li>last full month: {{ '${:,.2f}'.format(category_list[2][0])}} | {{ '${:,.2f}'.format(category_list[2][1]) }} | {{ '{:,.2f}%'.format(category_list[2][2])}}</li>
+        <li>so far this month: {{ '${:,.2f}'.format(category_list[3][0])}} | {{ '${:,.2f}'.format(category_list[3][1]) }} | {{ '{:,.2f}%'.format(category_list[3][2])}}</li>
+    </ul>
+                </details>
+            {% endfor %}
+            </details>
+        {% endfor %}
+
+{% endblock %}
